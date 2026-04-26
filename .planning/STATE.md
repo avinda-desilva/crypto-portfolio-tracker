@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-04-26)
 
 **Core value:** See all wallet balances across all chains in one clean view, refreshed automatically every 2 minutes — no login, no database, no friction.
-**Current focus:** Phase 1 — Types
+**Current focus:** Phase 2 — Frontend UI (Wallet Input)
 
 ## Current Position
 

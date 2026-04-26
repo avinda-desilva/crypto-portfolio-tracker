@@ -7,7 +7,7 @@
 
 ### Types
 
-- [ ] **TYPES-01**: TypeScript interfaces defined for `Wallet`, `ChainBalance`, and `PortfolioResponse` in `/types/wallet.ts`
+- [x] **TYPES-01**: TypeScript interfaces defined for `Wallet`, `ChainBalance`, and `PortfolioResponse` in `/types/wallet.ts`
 
 ### Frontend UI
 
@@ -98,7 +98,7 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TYPES-01 | Phase 1 | Pending |
+| TYPES-01 | Phase 1 | Complete (2026-04-26) |
 | UI-01 | Phase 2 | Pending |
 | UI-02 | Phase 2 | Pending |
 | UI-03 | Phase 2 | Pending |

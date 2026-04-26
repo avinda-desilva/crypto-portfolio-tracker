@@ -7,7 +7,7 @@
 
 ### Types
 
-- [x] **TYPES-01**: TypeScript interfaces defined for `Wallet`, `ChainBalance`, and `PortfolioResponse` in `/types/wallet.ts`
+- [x] **TYPES-01**: TypeScript interfaces defined for `Wallet` and `PortfolioResult` (plus `Chain` type alias) in `/types/wallet.ts` — validated Phase 1
 
 ### Frontend UI
 

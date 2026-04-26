@@ -22,6 +22,10 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 8: Aggregator Logic** - Chain modules combined with CoinGecko prices and server-side cache
 - [ ] **Phase 9: Connect Frontend to API** - UI wired to /api/portfolio rendering real balance data
 - [ ] **Phase 10: Auto Refresh** - 2-minute polling loop and manual refresh button
+- [ ] **Phase 11: Caching Layer (Backend)** - Harden cache module with configurable TTL and manual-refresh invalidation
+- [ ] **Phase 12: Error Handling** - Per-wallet error states, retry logic, and user-friendly messages
+- [ ] **Phase 13: Environment Setup** - .env.local.example, startup env validation, README setup guide
+- [ ] **Phase 14: Final Cleanup** - Dead code removal, TypeScript strict mode, consistent code style
 
 ## Phase Details
 
@@ -130,10 +134,51 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: TBD
 **UI hint**: yes
 
+### Phase 11: Caching Layer (Backend)
+**Goal**: The cache module is a standalone, hardened utility with configurable TTL and proper invalidation — decoupled from the aggregator
+**Depends on**: Phase 8
+**Requirements**: CACHE-01, CACHE-02, CACHE-03
+**Success Criteria** (what must be TRUE):
+  1. `lib/cache.ts` exports a reusable cache utility with no direct dependency on aggregator logic
+  2. Cache TTL is set via a single config constant (default 2 minutes) and applied consistently
+  3. Triggering a manual refresh clears the cache so the next call fetches fresh data from external APIs
+**Plans**: TBD
+
+### Phase 12: Error Handling
+**Goal**: All error paths surface clear, user-friendly feedback without exposing raw API errors or crashing the UI
+**Depends on**: Phase 9, Phase 11
+**Requirements**: ERR-01, ERR-02, ERR-03
+**Success Criteria** (what must be TRUE):
+  1. A wallet that fails to fetch shows a visible per-wallet error state (e.g., "Failed to load") instead of blank or broken UI
+  2. Transient failures retry up to 2 times before the error state is shown
+  3. No raw API error messages, status codes, or stack traces are visible to the user
+**Plans**: TBD
+**UI hint**: yes
+
+### Phase 13: Environment Setup
+**Goal**: A new developer can clone, configure env vars, and run the app in under 5 minutes using documented setup steps
+**Depends on**: Phase 5, Phase 7
+**Requirements**: ENV-01, ENV-02, ENV-03
+**Success Criteria** (what must be TRUE):
+  1. `.env.local.example` exists at the repo root with every required variable listed and described
+  2. Starting the dev server without required env vars fails immediately with a clear error naming the missing variable
+  3. README contains step-by-step setup instructions (clone → copy env → install → run)
+**Plans**: TBD
+
+### Phase 14: Final Cleanup
+**Goal**: The codebase is clean, consistent, and TypeScript-strict — ready to hand off or revisit without friction
+**Depends on**: Phase 12, Phase 13
+**Requirements**: CLEAN-01, CLEAN-02, CLEAN-03
+**Success Criteria** (what must be TRUE):
+  1. `tsc --noEmit` passes with `"strict": true` in tsconfig.json and zero type errors
+  2. No unused imports, dead code, or commented-out blocks remain in any source file
+  3. All files use consistent naming conventions, import ordering, and formatting
+**Plans**: TBD
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → 11 → 12 → 13 → 14
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -147,3 +192,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 8. Aggregator Logic | 0/? | Not started | - |
 | 9. Connect Frontend to API | 0/? | Not started | - |
 | 10. Auto Refresh | 0/? | Not started | - |
+| 11. Caching Layer (Backend) | 0/? | Not started | - |
+| 12. Error Handling | 0/? | Not started | - |
+| 13. Environment Setup | 0/? | Not started | - |
+| 14. Final Cleanup | 0/? | Not started | - |

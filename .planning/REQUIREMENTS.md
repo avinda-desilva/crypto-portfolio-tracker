@@ -46,6 +46,30 @@
 - [ ] **REFR-01**: Balances auto-refresh every ~2 minutes via polling
 - [ ] **REFR-02**: User can manually trigger a balance refresh
 
+### Caching Layer
+
+- [ ] **CACHE-01**: Cache module (`lib/cache.ts`) is a standalone, reusable utility decoupled from the aggregator
+- [ ] **CACHE-02**: Cache TTL is configurable (default 2 minutes, matches refresh interval)
+- [ ] **CACHE-03**: Manual refresh bypasses and invalidates the cache, forcing fresh API calls
+
+### Error Handling
+
+- [ ] **ERR-01**: Frontend displays a per-wallet error state (not a blank/broken UI) when a balance fetch fails
+- [ ] **ERR-02**: Transient API failures trigger a retry (up to 2 retries) before surfacing an error
+- [ ] **ERR-03**: Error messages are user-friendly (no raw stack traces or API error codes shown)
+
+### Environment Setup
+
+- [ ] **ENV-01**: A `.env.local.example` file documents all required environment variables with placeholder values
+- [ ] **ENV-02**: API route validates that required env vars are present at startup and fails fast with a clear message if missing
+- [ ] **ENV-03**: README includes step-by-step local setup instructions (clone → env → install → run)
+
+### Final Cleanup
+
+- [ ] **CLEAN-01**: No unused imports, dead code, or commented-out blocks remain in any source file
+- [ ] **CLEAN-02**: All source files pass TypeScript strict mode (`"strict": true`) with zero type errors
+- [ ] **CLEAN-03**: Code style is consistent across all files (formatting, naming conventions, import ordering)
+
 ## v2 Requirements
 
 ### Notifications
@@ -91,12 +115,24 @@
 | CONN-01 | Phase 9 | Pending |
 | REFR-01 | Phase 10 | Pending |
 | REFR-02 | Phase 10 | Pending |
+| CACHE-01 | Phase 11 | Pending |
+| CACHE-02 | Phase 11 | Pending |
+| CACHE-03 | Phase 11 | Pending |
+| ERR-01 | Phase 12 | Pending |
+| ERR-02 | Phase 12 | Pending |
+| ERR-03 | Phase 12 | Pending |
+| ENV-01 | Phase 13 | Pending |
+| ENV-02 | Phase 13 | Pending |
+| ENV-03 | Phase 13 | Pending |
+| CLEAN-01 | Phase 14 | Pending |
+| CLEAN-02 | Phase 14 | Pending |
+| CLEAN-03 | Phase 14 | Pending |
 
 **Coverage:**
-- v1 requirements: 17 total
-- Mapped to phases: 17
+- v1 requirements: 31 total
+- Mapped to phases: 31
 - Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-04-26*
-*Last updated: 2026-04-26 after initial definition*
+*Last updated: 2026-04-26 after adding phases 11-14*

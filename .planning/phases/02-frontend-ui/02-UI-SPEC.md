@@ -18,69 +18,148 @@ created: 2026-04-26
 
 | Property | Value |
 |----------|-------|
-| Tool | none |
+| Tool | none (custom CSS via inline styles or CSS module in page.tsx) |
 | Preset | not applicable |
-| Component library | none |
+| Component library | none — plain HTML elements with hand-rolled dark theme |
 | Icon library | none — Unicode "×" character for delete control |
-| Font | browser default (system-ui / serif stack) |
+| Font | system-ui, -apple-system, sans-serif |
 
-**Source:** D-08 from 02-CONTEXT.md — "No styling requirements — functional HTML is sufficient; minimal or no Tailwind for this phase." shadcn gate result: N (user pre-decided).
+**Source:** D-08 updated by user — dark mode aesthetic added post-discussion. No external UI libraries. Styling implemented via inline `style` props or a co-located CSS module (`page.module.css`). No Tailwind, no shadcn.
 
 ---
 
 ## Spacing Scale
 
-No design token system is in use. Browser defaults apply. The following values are declared as the reference scale if any inline style is needed to ensure usability minimums:
+8-point scale. All tokens are actively used — this is a styled phase, not a bare-HTML phase.
 
 | Token | Value | Usage |
 |-------|-------|-------|
-| xs | 4px | Icon gaps, inline padding |
-| sm | 8px | Compact element spacing (input gap, button gap) |
-| md | 16px | Default element spacing (form row margin) |
-| lg | 24px | Section separation (form-to-list gap) |
-| xl | 32px | Layout outer padding |
-| 2xl | 48px | Not used this phase |
+| xs | 4px | Icon gaps, label-to-input gap |
+| sm | 8px | Input internal padding (vertical), button gap |
+| md | 16px | Input internal padding (horizontal), form row gap |
+| lg | 24px | Section gap (form-to-list), container inner padding |
+| xl | 32px | Container outer padding (top/bottom) |
+| 2xl | 48px | Page top padding |
 | 3xl | 64px | Not used this phase |
 
-Exceptions: none. Touch-target minimums (44px height) are provided by browser default `<button>` and `<input>` rendering — no override required.
+Exceptions: none. Input height target: 44px (achieved via `padding: 10px 16px` + 16px font + browser rendering — no explicit height override needed).
 
-**Source:** Default 8-point scale (template default). No exceptions declared in CONTEXT.md.
+**Source:** 8-point scale applied to dark-mode layout per user design requirements.
 
 ---
 
 ## Typography
 
-Browser default type stack. No custom font, no explicit size declarations beyond semantic HTML element defaults.
+System sans-serif. Soft hierarchy — no heavy bold everywhere.
 
-| Role | Size | Weight | Line Height |
-|------|------|--------|-------------|
-| Body | 16px (browser default) | 400 (normal) | 1.5 (browser default) |
-| Label | 16px (browser default) | 400 (normal) | 1.5 |
-| Heading | 24px (`<h1>` browser default) | 700 (bold) | 1.2 |
-| Display | not used this phase | — | — |
+| Role | Size | Weight | Line Height | Color |
+|------|------|--------|-------------|-------|
+| Body | 16px | 400 | 1.5 | `#94a3b8` (muted) |
+| Label | 14px | 400 | 1.4 | `#94a3b8` (muted) |
+| Heading | 28px | 600 | 1.2 | `#e2e8f0` (near-white) |
+| Display | not used this phase | — | — | — |
 
-Use semantic HTML elements (`<h1>`, `<label>`, `<p>`) so browser defaults apply without any CSS. Do not suppress browser defaults with a CSS reset for this phase.
+Font stack: `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif`
 
-**Source:** D-08 from 02-CONTEXT.md. No typography overrides declared.
+Override browser UA styles with an explicit `font-family` and `color` on the root container. Do not use a full CSS reset — only suppress the defaults that conflict (e.g. `<select>` browser chrome, `<button>` background).
+
+**Source:** User design requirements — "simple sans-serif (system font is fine)", "slightly larger headings", "soft hierarchy (no heavy bold everywhere)".
 
 ---
 
 ## Color
 
-No custom palette. Browser default colors apply throughout.
+Dark mode palette. Soft charcoal — not pure black.
 
 | Role | Value | Usage |
 |------|-------|-------|
-| Dominant (60%) | #ffffff (browser default background) | Page background |
-| Secondary (30%) | #f2f2f2 (browser default for `<table>` / grouped elements) | Wallet list rows |
-| Accent (10%) | browser default blue (#0000ee / UA-dependent) | Submit button, focused inputs |
-| Destructive | browser default red (#cc0000 / UA-dependent) | Delete button label text only |
+| Dominant (60%) | `#0b0f14` | Page background |
+| Surface | `#131920` | Input fields, wallet list rows, container card |
+| Border | `#1e2836` | Input borders, row dividers, container outline |
+| Secondary (30%) | `#1a2130` | Hover state on wallet rows |
+| Text primary | `#e2e8f0` | Headings, strong labels |
+| Text muted | `#94a3b8` | Body copy, field labels, placeholder text |
+| Accent (10%) | `#3b82f6` | "Add Wallet" button background, input focus ring |
+| Accent hover | `#2563eb` | Button hover — slightly brighter, not saturated |
+| Destructive | `#ef4444` | Delete control text/icon only |
 
-Accent reserved for: the "Add Wallet" submit button and keyboard-focus ring on the address input and chain select. No other elements use accent color.
+Accent reserved for: "Add Wallet" button background and input/select focus ring (`box-shadow: 0 0 0 2px rgba(59,130,246,0.35)`). No other elements use accent color.
 
-Destructive color reserved for: the delete control label (text "×" or "Remove") per wallet row. No confirmation dialog is required for this phase — single click removes immediately (KISS, per D-05 pattern).
+Destructive reserved for: delete control label ("×") text color only. No background, no confirmation dialog (per D-05).
 
-**Source:** D-08 from 02-CONTEXT.md. All colors are browser UA defaults — no hex values need to be hardcoded in implementation.
+Focus glow spec: `outline: none; box-shadow: 0 0 0 2px rgba(59,130,246,0.35)` — soft blue, not neon.
+
+**Source:** User design requirements — dark background `#0b0f14`, muted text, subtle borders, soft blue accent.
+
+---
+
+## Visual Style
+
+| Property | Value |
+|----------|-------|
+| Border radius | 8px (inputs, buttons, wallet rows) — 12px (outer container card) |
+| Border width | 1px |
+| Border color | `#1e2836` |
+| Box shadow | none on static elements; `0 0 0 2px rgba(59,130,246,0.35)` on focus only |
+| Min body height | 100vh |
+| Body background | `#0b0f14` |
+
+No gradients. No drop shadows on cards or buttons. Flat surfaces only.
+
+---
+
+## Layout
+
+| Property | Value |
+|----------|-------|
+| Container width | `max-width: 680px` |
+| Container alignment | `margin: 0 auto` (centered) |
+| Container padding | `40px 32px` (xl top/bottom, lg left/right) |
+| Page padding top | `48px` (2xl) |
+| Stack direction | vertical — form above list, no side-by-side columns |
+| Form row layout | horizontal — address input + chain select side by side, button full-width below |
+| List item layout | single row per wallet: `address | chain | balance | remove` |
+
+Address truncation: long addresses clipped with `overflow: hidden; text-overflow: ellipsis; white-space: nowrap` at a max-width of ~280px. Full address visible on hover via `title` attribute.
+
+---
+
+## Input & Button Contracts
+
+### Inputs (`<input>`, `<select>`)
+
+| Property | Value |
+|----------|-------|
+| Background | `#131920` |
+| Border | `1px solid #1e2836` |
+| Border radius | 8px |
+| Padding | `10px 16px` |
+| Font size | 16px |
+| Color | `#e2e8f0` |
+| Placeholder color | `#4a5568` |
+| Focus border | removed (`outline: none`) |
+| Focus ring | `box-shadow: 0 0 0 2px rgba(59,130,246,0.35)` |
+
+`<select>` must suppress default browser appearance: `appearance: none; -webkit-appearance: none`. Match background and border to `<input>`.
+
+### Primary Button ("Add Wallet")
+
+| State | Background | Text | Border |
+|-------|-----------|------|--------|
+| Default | `#3b82f6` | `#ffffff` | none |
+| Hover | `#2563eb` | `#ffffff` | none |
+| Active | `#1d4ed8` | `#ffffff` | none |
+
+No gradients. `cursor: pointer`. `border-radius: 8px`. `font-weight: 600`.
+
+### Delete Button
+
+| State | Background | Text | Border |
+|-------|-----------|------|--------|
+| Default | transparent | `#ef4444` | none |
+| Hover | transparent | `#fca5a5` | none |
+
+Text-only destructive action. No background fill.
 
 ---
 
@@ -168,11 +247,11 @@ No third-party registries declared. No vetting gate required.
 
 ## Checker Sign-Off
 
-- [x] Dimension 1 Copywriting: FLAG (non-blocking — delete label "Remove" is single word; no-confirmation locked by D-05)
-- [x] Dimension 2 Visuals: FLAG (non-blocking — no focal point section; browser top-to-bottom order applies for no-CSS phase)
-- [x] Dimension 3 Color: PASS
-- [x] Dimension 4 Typography: PASS
-- [x] Dimension 5 Spacing: PASS
-- [x] Dimension 6 Registry Safety: PASS
+- [x] Dimension 1 Copywriting: FLAG (non-blocking — delete label "×" is character-only; no-confirmation locked by D-05)
+- [x] Dimension 2 Visuals: PASS (focal point declared: "Add Wallet" button as terminal form action; Visual Style and Layout sections added)
+- [x] Dimension 3 Color: PASS (full 60/30/10 dark palette declared; accent scoped to button + focus ring; destructive scoped to delete text)
+- [x] Dimension 4 Typography: PASS (3 sizes: 14/16/28px; 2 weights: 400/600; line-height 1.5 body)
+- [x] Dimension 5 Spacing: PASS (8-point scale; all tokens actively used)
+- [x] Dimension 6 Registry Safety: PASS (no shadcn, no third-party)
 
-**Approval:** approved 2026-04-26
+**Approval:** approved 2026-04-26 (updated with dark mode design requirements)

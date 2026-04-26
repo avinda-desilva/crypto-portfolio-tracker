@@ -34,10 +34,12 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Depends on**: Nothing (first phase)
 **Requirements**: TYPES-01
 **Success Criteria** (what must be TRUE):
-  1. `Wallet`, `ChainBalance`, and `PortfolioResponse` interfaces are exported from `/types/wallet.ts`
+  1. `Wallet` and `PortfolioResult` interfaces (plus `Chain` type alias) are exported from `/types/wallet.ts`
   2. TypeScript compiles with no errors when these types are imported anywhere in the project
-  3. Each interface covers all fields needed by later phases (address, chain, native balance, USD value, error state)
-**Plans**: TBD
+  3. Each interface covers only the fields needed by later phases — no usdValue, no id, no error fields (Phase 1 minimal surface)
+**Plans**: 1 plan
+Plans:
+- [ ] 01-01-PLAN.md — Create types/wallet.ts with Chain, Wallet, and PortfolioResult
 
 ### Phase 2: Frontend UI (Wallet Input)
 **Goal**: User can add wallets and see them listed, with balance placeholders ready for real data
@@ -182,7 +184,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Types | 0/? | Not started | - |
+| 1. Types | 0/1 | Not started | - |
 | 2. Frontend UI (Wallet Input) | 0/? | Not started | - |
 | 3. localStorage Persistence | 0/? | Not started | - |
 | 4. Backend API Route (Skeleton) | 0/? | Not started | - |

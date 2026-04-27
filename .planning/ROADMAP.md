@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 2: Frontend UI (Wallet Input)** - Wallet input form with chain selector and display shell
 - [x] **Phase 3: localStorage Persistence** - Wallet list persists and loads across page reloads
 - [x] **Phase 4: Backend API Route (Skeleton)** - API route structure that accepts wallet params and returns shaped response
-- [ ] **Phase 5: Ethereum Balance Module** - Alchemy integration fetching live ETH balances
+- [x] **Phase 5: Ethereum Balance Module** - Alchemy integration fetching live ETH balances
 - [ ] **Phase 6: Bitcoin Balance Module** - blockchain.info integration fetching live BTC balances
 - [ ] **Phase 7: Solana Balance Module** - Helius RPC integration fetching live SOL balances
 - [ ] **Phase 8: Aggregator Logic** - Chain modules combined with CoinGecko prices and server-side cache

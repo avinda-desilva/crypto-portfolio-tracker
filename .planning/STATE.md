@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-04-26)
 
 **Core value:** See all wallet balances across all chains in one clean view, refreshed automatically every 2 minutes — no login, no database, no friction.
-**Current focus:** Phase 5 — Ethereum Balance Module
+**Current focus:** Phase 6 — Bitcoin Balance Module
 
 ## Current Position
 
-Phase: 5 of 14 (Ethereum Balance Module)
-Plan: 2 of 2 in current phase — Phase 5 complete
-Status: Phase 5 complete — ETH-01 end-to-end (lib/ethereum.ts + route wiring + tests)
-Last activity: 2026-04-27 — 05-02 complete: portfolio route wired to real getEthereumBalance via Promise.all
+Phase: 6 of 14 (Bitcoin Balance Module)
+Plan: 0 of ? in current phase — Phase 6 not started
+Status: Phase 5 UAT passed — advancing to Phase 6
+Last activity: 2026-04-27 — Phase 5 UAT complete: 5/5 passed
 
 Progress: [█████░░░░░] 40%
 

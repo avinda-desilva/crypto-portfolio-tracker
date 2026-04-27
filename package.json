@@ -2,9 +2,11 @@
   "name": "crypto-portfolio-tracker",
   "version": "1.0.0",
   "description": "A simple web app that provides real time updates of current crypto portfolio balance.",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -13,12 +15,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/avinda-desilva/crypto-portfolio-tracker/issues"
   },
   "homepage": "https://github.com/avinda-desilva/crypto-portfolio-tracker#readme",
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
   "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "typescript": "^6.0.3"
   }
 }

@@ -9,10 +9,10 @@ See: .planning/PROJECT.md (updated 2026-04-26)
 
 ## Current Position
 
-Phase: 4 of 14 (Backend API Route Skeleton)
-Plan: 1 of 1 in current phase — Complete
-Status: Phase 4 complete — ready for Phase 5
-Last activity: 2026-04-26 — 04-01 complete: POST /api/portfolio handler with validation, mock 1.23 balance, 8 Jest tests
+Phase: 5 of 14 (Ethereum Balance Module)
+Plan: 0 of 2 in current phase — Ready to execute
+Status: Phase 5 planned — ready to execute (2 plans in 2 waves)
+Last activity: 2026-04-27 — 05 planned: lib/ethereum.ts Alchemy module + route wiring, 2 plans
 
 Progress: [█████░░░░░] 36%
 

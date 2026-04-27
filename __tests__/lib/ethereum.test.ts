@@ -7,18 +7,21 @@
 
 // Mock alchemy-sdk before importing the module under test
 jest.mock("alchemy-sdk", () => {
+  const realSdk = jest.requireActual("alchemy-sdk");
   const mockGetBalance = jest.fn();
   return {
+    ...realSdk,
     Alchemy: jest.fn().mockImplementation(() => ({
       core: { getBalance: mockGetBalance },
     })),
-    Network: { ETH_MAINNET: "eth-mainnet" },
     __mockGetBalance: mockGetBalance,
   };
 });
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const alchemySdk = require("alchemy-sdk");
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const { Utils } = require("alchemy-sdk");
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const { getEthereumBalance } = require("../../lib/ethereum");
 
@@ -28,11 +31,19 @@ describe("getEthereumBalance", () => {
   });
 
   it("returns ETH balance as a number for a valid address", async () => {
-    // 2 ETH in wei = 2_000_000_000_000_000_000
-    alchemySdk.__mockGetBalance.mockResolvedValue(BigInt("2000000000000000000"));
+    // 2 ETH in wei — use Utils.parseUnits to match the real ethers.js BigNumber the SDK returns
+    alchemySdk.__mockGetBalance.mockResolvedValue(Utils.parseUnits("2", 18));
     const result = await getEthereumBalance("0xabc123");
     expect(typeof result).toBe("number");
     expect(result).toBeCloseTo(2.0);
+  });
+
+  it("handles large balances (>0.009 ETH) without precision loss", async () => {
+    // 10 ETH — above the ~0.009 ETH threshold where Number(BigNumber) would lose precision
+    alchemySdk.__mockGetBalance.mockResolvedValue(Utils.parseUnits("10", 18));
+    const result = await getEthereumBalance("0xabc123");
+    expect(typeof result).toBe("number");
+    expect(result).toBeCloseTo(10.0);
   });
 
   it("returns 0 when the SDK throws an error", async () => {

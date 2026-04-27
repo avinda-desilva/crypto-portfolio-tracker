@@ -60,10 +60,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
           return { address: wallet.address, chain: wallet.chain, balance: await getEthereumBalance(wallet.address) };
         case "bitcoin":
           // TODO: Phase 6 — replace with lib/bitcoin.ts call
-          return { address: wallet.address, chain: wallet.chain, balance: 1.23 };
+          return { address: wallet.address, chain: wallet.chain, balance: null, error: "not_implemented" };
         case "solana":
           // TODO: Phase 7 — replace with lib/solana.ts call
-          return { address: wallet.address, chain: wallet.chain, balance: 1.23 };
+          return { address: wallet.address, chain: wallet.chain, balance: null, error: "not_implemented" };
       }
     })
   );

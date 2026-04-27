@@ -24,5 +24,6 @@ export interface Wallet {
 export interface PortfolioResult {
   address: string;
   chain: string;
-  balance: number;
+  balance: number | null;
+  error?: string;
 }

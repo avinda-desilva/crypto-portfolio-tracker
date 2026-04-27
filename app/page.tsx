@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { Chain, Wallet } from "../types/wallet";
 
 const colors = {
@@ -29,20 +29,39 @@ export default function Home() {
   const [hoveredRow, setHoveredRow]       = useState<number | null>(null);
   const [hoveredRemove, setHoveredRemove] = useState<number | null>(null);
 
-  // Load wallets from localStorage on mount (STOR-02, D-04, D-05, D-06, D-09, D-10)
+  const hasLoaded = useRef(false);
+
+  // Load wallets from localStorage on mount (STOR-02)
   useEffect(() => {
     const raw = localStorage.getItem("wallets");
-    if (raw === null) return;
-    try {
-      const parsed = JSON.parse(raw) as Wallet[];
-      setWallets(parsed);
-    } catch {
-      // D-06: parse failure — silently fall back to empty list, do not crash
+    if (raw !== null) {
+      try {
+        const parsed: unknown = JSON.parse(raw);
+        if (
+          Array.isArray(parsed) &&
+          parsed.every(
+            (item) =>
+              item !== null &&
+              typeof item === "object" &&
+              typeof (item as Record<string, unknown>).address === "string" &&
+              (item as Record<string, unknown>).address !== "" &&
+              ((item as Record<string, unknown>).chain === "ethereum" ||
+                (item as Record<string, unknown>).chain === "bitcoin" ||
+                (item as Record<string, unknown>).chain === "solana")
+          )
+        ) {
+          setWallets(parsed as Wallet[]);
+        }
+      } catch {
+        // parse failure — fall back to empty list, do not crash
+      }
     }
+    hasLoaded.current = true;
   }, []);
 
-  // Sync wallets to localStorage on every change (STOR-01, D-07, D-08)
+  // Sync wallets to localStorage on every change (STOR-01)
   useEffect(() => {
+    if (!hasLoaded.current) return;
     localStorage.setItem("wallets", JSON.stringify(wallets));
   }, [wallets]);
 

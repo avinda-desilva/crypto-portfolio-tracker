@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Types** - Shared TypeScript interfaces for wallet, balance, and portfolio response
 - [x] **Phase 2: Frontend UI (Wallet Input)** - Wallet input form with chain selector and display shell
-- [ ] **Phase 3: localStorage Persistence** - Wallet list persists and loads across page reloads
+- [x] **Phase 3: localStorage Persistence** - Wallet list persists and loads across page reloads
 - [ ] **Phase 4: Backend API Route (Skeleton)** - API route structure that accepts wallet params and returns shaped response
 - [ ] **Phase 5: Ethereum Balance Module** - Alchemy integration fetching live ETH balances
 - [ ] **Phase 6: Bitcoin Balance Module** - blockchain.info integration fetching live BTC balances
@@ -66,7 +66,7 @@ Plans:
   3. On initial render the wallet list is populated from localStorage before any user interaction
 **Plans**: 1 plan
 Plans:
-- [ ] 03-01-PLAN.md — Add useEffect hooks to app/page.tsx for localStorage load and save
+- [x] 03-01-PLAN.md — Add useEffect hooks to app/page.tsx for localStorage load and save
 
 ### Phase 4: Backend API Route (Skeleton)
 **Goal**: `/api/portfolio` exists, accepts wallet query params, and returns a correctly shaped (stubbed) response
@@ -191,7 +191,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 |-------|----------------|--------|-----------|
 | 1. Types | 1/1 | Complete | 2026-04-26 |
 | 2. Frontend UI (Wallet Input) | 2/2 | Complete | 2026-04-26 |
-| 3. localStorage Persistence | 0/1 | Not started | - |
+| 3. localStorage Persistence | 1/1 | Complete | 2026-04-26 |
 | 4. Backend API Route (Skeleton) | 0/? | Not started | - |
 | 5. Ethereum Balance Module | 0/? | Not started | - |
 | 6. Bitcoin Balance Module | 0/? | Not started | - |

@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-04-26)
 ## Current Position
 
 Phase: 2 of 10 (Frontend UI — Wallet Input)
-Plan: 0 of 2 in current phase — Ready to execute
-Status: Phase 2 planned, ready to execute
-Last activity: 2026-04-26 — Phase 2 planned: 02-01-PLAN.md, 02-02-PLAN.md created
+Plan: 1 of 2 in current phase — 02-01 complete, 02-02 next
+Status: Phase 2 in progress — 02-01 bootstrapped Next.js App Router
+Last activity: 2026-04-27 — 02-01-PLAN.md complete: package.json, tsconfig.json, next.config.ts, npm install
 
-Progress: [█░░░░░░░░░] 10%
+Progress: [██░░░░░░░░] 15%
 
 ## Performance Metrics
 
@@ -44,6 +44,7 @@ Recent decisions affecting current work:
 
 - Initialization: localStorage for persistence (no DB), Alchemy for ETH, Helius for SOL, blockchain.info for BTC, CoinGecko for prices, server-side cache in lib/cache.ts, modular chain files
 - 01-01: Chain type alias reused in Wallet.chain (no literal duplication); PortfolioResult.chain is string not Chain (simpler downstream imports); all three exports are named (no default export)
+- 02-01: next@^15 + react@^19 for latest stable App Router; moduleResolution=bundler for Next.js compatibility; noEmit=true (tsc is type-check only, Next.js compiles); .gitignore extended with node_modules/, .next/, .env.local
 
 ### Pending Todos
 
@@ -61,6 +62,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-26
-Stopped at: Phase 2 planned — 2 plans in 2 waves
-Resume file: .planning/phases/02-frontend-ui/02-01-PLAN.md
+Last session: 2026-04-27
+Stopped at: 02-01 complete — Next.js bootstrap done, 02-02 wallet UI is next
+Resume file: .planning/phases/02-frontend-ui/02-02-PLAN.md

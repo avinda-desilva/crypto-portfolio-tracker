@@ -27,7 +27,7 @@
 
 ### Chain Modules
 
-- [ ] **ETH-01**: `lib/ethereum.ts` fetches ETH balance for a given address via Alchemy API
+- [x] **ETH-01**: `lib/ethereum.ts` fetches ETH balance for a given address via Alchemy API — validated Phase 5 Plan 01
 - [ ] **BTC-01**: `lib/bitcoin.ts` fetches BTC balance for a given address via blockchain.info API
 - [ ] **SOL-01**: `lib/solana.ts` fetches SOL balance for a given address via Helius RPC
 
@@ -106,7 +106,7 @@
 | STOR-02 | Phase 3 | Complete (2026-04-26) |
 | API-01 | Phase 4 | Complete (2026-04-26) |
 | API-02 | Phase 8 | Pending |
-| ETH-01 | Phase 5 | Pending |
+| ETH-01 | Phase 5 | Complete (2026-04-27) |
 | BTC-01 | Phase 6 | Pending |
 | SOL-01 | Phase 7 | Pending |
 | AGG-01 | Phase 8 | Pending |

@@ -90,7 +90,7 @@ Plans:
   3. The Alchemy API key is read from `ALCHEMY_API_KEY` in `.env.local` and never hardcoded
 **Plans**: 2 plans
 Plans:
-- [ ] 05-01-PLAN.md — Install alchemy-sdk, create lib/ethereum.ts with TDD (4 unit tests)
+- [x] 05-01-PLAN.md — Install alchemy-sdk, create lib/ethereum.ts with TDD (4 unit tests)
 - [ ] 05-02-PLAN.md — Wire lib/ethereum.ts into app/api/portfolio/route.ts (async refactor + test update)
 
 ### Phase 6: Bitcoin Balance Module
@@ -198,7 +198,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 2. Frontend UI (Wallet Input) | 2/2 | Complete | 2026-04-26 |
 | 3. localStorage Persistence | 1/1 | Complete | 2026-04-26 |
 | 4. Backend API Route (Skeleton) | 1/1 | Complete | 2026-04-26 |
-| 5. Ethereum Balance Module | 0/2 | Not started | - |
+| 5. Ethereum Balance Module | 1/2 | In progress | - |
 | 6. Bitcoin Balance Module | 0/? | Not started | - |
 | 7. Solana Balance Module | 0/? | Not started | - |
 | 8. Aggregator Logic | 0/? | Not started | - |

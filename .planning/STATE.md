@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-04-26)
 ## Current Position
 
 Phase: 5 of 14 (Ethereum Balance Module)
-Plan: 0 of 2 in current phase — Ready to execute
-Status: Phase 5 planned — ready to execute (2 plans in 2 waves)
-Last activity: 2026-04-27 — 05 planned: lib/ethereum.ts Alchemy module + route wiring, 2 plans
+Plan: 1 of 2 in current phase — Plan 01 complete, Plan 02 ready to execute
+Status: Phase 5 in progress — plan 05-01 complete (lib/ethereum.ts + tests)
+Last activity: 2026-04-27 — 05-01 complete: lib/ethereum.ts Alchemy module implemented and tested (4 tests passing)
 
-Progress: [█████░░░░░] 36%
+Progress: [█████░░░░░] 38%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
+- Total plans completed: 2
 - Average duration: 2 min
-- Total execution time: 0.03 hours
+- Total execution time: 0.07 hours
 
 **By Phase:**
 
@@ -30,10 +30,11 @@ Progress: [█████░░░░░] 36%
 | 01-types | 1 | 2 min | 2 min |
 | 03-localstorage-persistence | 1 | 5 min | 5 min |
 | 04-backend-api-route | 1 | 12 min | 12 min |
+| 05-ethereum-balance-module | 1 | 2 min | 2 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (2 min)
-- Trend: Establishing baseline
+- Last 5 plans: 01-01 (2 min), 05-01 (2 min)
+- Trend: Consistently fast (2-12 min range)
 
 *Updated after each plan completion*
 
@@ -50,6 +51,7 @@ Recent decisions affecting current work:
 - 02-02: app/layout.tsx is a Server Component (no use client) — required by Next.js App Router; inline styles for all interactive states (no CSS modules, no Tailwind); index-based wallet removal sufficient for Phase 2 client-only state
 - 03-01: localStorage key is literal string "wallets"; load effect uses [] dependency (mount-only); absent key triggers early return; JSON.parse wrapped in try/catch with silent fallback; save effect uses [wallets] dependency; no loading state variable
 - 04-01: Import path is ../../../types/wallet (3 levels up, not 2 as in plan spec); VALID_CHAINS as const for runtime chain validation; Jest testPathIgnorePatterns excludes tsc-only test file; tsconfig types includes jest and node for tsc --noEmit to pass on test files
+- 05-01: Alchemy SDK singleton created at module level (not inside function); getEthereumBalance returns 0 on any error (never throws); ALCHEMY_API_KEY from process.env exclusively; jest.mock at module level with __mockGetBalance export pattern; Jest 30 uses --testPathPatterns (plural)
 
 ### Pending Todos
 
@@ -67,6 +69,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-26
-Stopped at: Phase 4 complete — POST /api/portfolio handler implemented and tested; ready for Phase 5 Ethereum module
-Resume file: None — Phase 5 ready to plan/execute
+Last session: 2026-04-27
+Stopped at: Phase 5 Plan 01 complete — lib/ethereum.ts with getEthereumBalance implemented (4 tests passing); ready for Phase 5 Plan 02 (route wiring)
+Resume file: None — 05-02-PLAN.md ready to execute

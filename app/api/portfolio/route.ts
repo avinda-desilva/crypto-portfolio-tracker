@@ -1,21 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import type { Wallet, PortfolioResult } from "../../../types/wallet";
+import { getEthereumBalance } from "../../../lib/ethereum";
 
 const VALID_CHAINS = ["ethereum", "bitcoin", "solana"] as const;
-
-function getMockBalance(wallet: Wallet): PortfolioResult {
-  switch (wallet.chain) {
-    case "ethereum":
-      // TODO: Phase 5 — replace with lib/ethereum.ts call
-      return { address: wallet.address, chain: wallet.chain, balance: 1.23 };
-    case "bitcoin":
-      // TODO: Phase 6 — replace with lib/bitcoin.ts call
-      return { address: wallet.address, chain: wallet.chain, balance: 1.23 };
-    case "solana":
-      // TODO: Phase 7 — replace with lib/solana.ts call
-      return { address: wallet.address, chain: wallet.chain, balance: 1.23 };
-  }
-}
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   // D-06: wrap body parsing in try/catch — malformed JSON → 400
@@ -66,8 +53,22 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
   // All items are valid — cast and build results (D-08, D-09)
   const validWallets = wallets as Wallet[];
-  const results: PortfolioResult[] = validWallets.map(getMockBalance);
+  const results: PortfolioResult[] = await Promise.all(
+    validWallets.map(async (wallet): Promise<PortfolioResult> => {
+      switch (wallet.chain) {
+        case "ethereum":
+          return { address: wallet.address, chain: wallet.chain, balance: await getEthereumBalance(wallet.address) };
+        case "bitcoin":
+          // TODO: Phase 6 — replace with lib/bitcoin.ts call
+          return { address: wallet.address, chain: wallet.chain, balance: 1.23 };
+        case "solana":
+          // TODO: Phase 7 — replace with lib/solana.ts call
+          return { address: wallet.address, chain: wallet.chain, balance: 1.23 };
+      }
+    })
+  );
 
-  // D-07: fixed mock balance 1.23 per wallet, D-08: response shape { results }
+  // D-07: ethereum uses real balance via lib/ethereum.ts; BTC/SOL still stubbed (Phases 6/7)
+  // D-08: response shape { results }
   return NextResponse.json({ results }, { status: 200 });
 }

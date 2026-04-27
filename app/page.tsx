@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { Chain, Wallet } from "../types/wallet";
 
 const colors = {
@@ -28,6 +28,23 @@ export default function Home() {
   const [selectFocus, setSelectFocus]     = useState(false);
   const [hoveredRow, setHoveredRow]       = useState<number | null>(null);
   const [hoveredRemove, setHoveredRemove] = useState<number | null>(null);
+
+  // Load wallets from localStorage on mount (STOR-02, D-04, D-05, D-06, D-09, D-10)
+  useEffect(() => {
+    const raw = localStorage.getItem("wallets");
+    if (raw === null) return;
+    try {
+      const parsed = JSON.parse(raw) as Wallet[];
+      setWallets(parsed);
+    } catch {
+      // D-06: parse failure — silently fall back to empty list, do not crash
+    }
+  }, []);
+
+  // Sync wallets to localStorage on every change (STOR-01, D-07, D-08)
+  useEffect(() => {
+    localStorage.setItem("wallets", JSON.stringify(wallets));
+  }, [wallets]);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();

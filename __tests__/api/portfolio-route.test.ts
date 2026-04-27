@@ -5,6 +5,11 @@
  * Calls the exported POST function directly with a NextRequest instance.
  */
 
+// Mock lib/ethereum.ts so tests do not make real Alchemy API calls
+jest.mock("../../lib/ethereum", () => ({
+  getEthereumBalance: jest.fn().mockResolvedValue(1.23),
+}));
+
 import { NextRequest } from "next/server";
 
 // POST is not yet implemented — these tests will fail (RED phase)

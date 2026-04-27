@@ -94,14 +94,16 @@ Plans:
 - [x] 05-02-PLAN.md — Wire lib/ethereum.ts into app/api/portfolio/route.ts (async refactor + test update)
 
 ### Phase 6: Bitcoin Balance Module
-**Goal**: `lib/bitcoin.ts` fetches a real BTC balance for any valid address via blockchain.info
+**Goal**: `lib/bitcoin.ts` fetches a real BTC balance for any valid address via the Blockstream public API
 **Depends on**: Phase 4
 **Requirements**: BTC-01
 **Success Criteria** (what must be TRUE):
   1. Calling the module with a known BTC address returns a numeric balance in BTC
-  2. A network error or invalid address returns a structured error the caller can handle
-  3. No API key is required — the module calls the public blockchain.info endpoint directly
-**Plans**: TBD
+  2. A network error or invalid address returns 0 (not a thrown exception) that the caller can handle
+  3. No API key is required — the module calls the public Blockstream endpoint directly using native fetch
+**Plans**: 1 plan
+Plans:
+- [ ] 06-01-PLAN.md — Create lib/bitcoin.ts with TDD (5 unit tests, mocked global fetch, no npm install)
 
 ### Phase 7: Solana Balance Module
 **Goal**: `lib/solana.ts` fetches a real SOL balance for any valid address via Helius RPC
@@ -199,7 +201,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 3. localStorage Persistence | 1/1 | Complete | 2026-04-26 |
 | 4. Backend API Route (Skeleton) | 1/1 | Complete | 2026-04-26 |
 | 5. Ethereum Balance Module | 2/2 | Complete | 2026-04-27 |
-| 6. Bitcoin Balance Module | 0/? | Not started | - |
+| 6. Bitcoin Balance Module | 0/1 | Not started | - |
 | 7. Solana Balance Module | 0/? | Not started | - |
 | 8. Aggregator Logic | 0/? | Not started | - |
 | 9. Connect Frontend to API | 0/? | Not started | - |

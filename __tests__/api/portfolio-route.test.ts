@@ -93,8 +93,9 @@ describe("POST /api/portfolio", () => {
     expect(json).toHaveProperty("error");
   });
 
-  // Test 8: multiple valid wallets (bitcoin + solana) → 200 with two entries
-  it("returns 200 with two results for bitcoin and solana wallets", async () => {
+  // Test 8: multiple valid wallets (bitcoin + solana) → 200 with two stub entries
+  // BTC/SOL return null+error until Phases 6/7 are implemented — not_implemented stubs
+  it("returns 200 with stub results for bitcoin and solana wallets", async () => {
     const req = makeRequest({
       wallets: [
         { address: "addr1", chain: "bitcoin" },
@@ -105,7 +106,7 @@ describe("POST /api/portfolio", () => {
     expect(res.status).toBe(200);
     const json = await res.json();
     expect(json.results).toHaveLength(2);
-    expect(json.results[0]).toEqual({ address: "addr1", chain: "bitcoin", balance: 1.23 });
-    expect(json.results[1]).toEqual({ address: "addr2", chain: "solana", balance: 1.23 });
+    expect(json.results[0]).toMatchObject({ address: "addr1", chain: "bitcoin", balance: null, error: "not_implemented" });
+    expect(json.results[1]).toMatchObject({ address: "addr2", chain: "solana", balance: null, error: "not_implemented" });
   });
 });

@@ -12,13 +12,12 @@ See all wallet balances across all chains in one clean view, refreshed automatic
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] User can add Ethereum, Bitcoin, and Solana wallet addresses — Validated in Phase 2: Frontend UI
+- [x] Wallet list renders per-entry with address, chain label, balance placeholder, and remove control — Validated in Phase 2: Frontend UI
 
 ### Active
 
-- [ ] User can add Ethereum wallet addresses
-- [ ] User can add Bitcoin wallet addresses
-- [ ] User can add Solana wallet addresses
+- [ ] Wallet address entry validated per chain format (deferred to Phase 12)
 - [ ] Wallets persist across sessions via localStorage
 - [ ] Backend API route aggregates balances from all chains
 - [ ] UI displays balance per wallet (native + USD)
@@ -117,4 +116,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-26 after initialization*
+*Last updated: 2026-04-26 after Phase 2 completion (Next.js bootstrap + dark-mode wallet UI)*

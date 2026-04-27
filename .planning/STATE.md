@@ -5,7 +5,7 @@
 See: .planning/PROJECT.md (updated 2026-04-26)
 
 **Core value:** See all wallet balances across all chains in one clean view, refreshed automatically every 2 minutes — no login, no database, no friction.
-**Current focus:** Phase 4 — Backend API Route (Skeleton)
+**Current focus:** Phase 5 — Ethereum Balance Module
 
 ## Current Position
 

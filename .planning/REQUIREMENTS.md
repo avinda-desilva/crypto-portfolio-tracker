@@ -17,8 +17,8 @@
 
 ### Persistence
 
-- [ ] **STOR-01**: Wallet list persists in localStorage across page reloads
-- [ ] **STOR-02**: Wallet list loads from localStorage on initial render
+- [x] **STOR-01**: Wallet list persists in localStorage across page reloads — validated Phase 3
+- [x] **STOR-02**: Wallet list loads from localStorage on initial render — validated Phase 3
 
 ### Backend API
 
@@ -102,8 +102,8 @@
 | UI-01 | Phase 2 | Pending |
 | UI-02 | Phase 2 | Pending |
 | UI-03 | Phase 2 | Pending |
-| STOR-01 | Phase 3 | Pending |
-| STOR-02 | Phase 3 | Pending |
+| STOR-01 | Phase 3 | Complete (2026-04-26) |
+| STOR-02 | Phase 3 | Complete (2026-04-26) |
 | API-01 | Phase 4 | Complete (2026-04-26) |
 | API-02 | Phase 8 | Pending |
 | ETH-01 | Phase 5 | Pending |

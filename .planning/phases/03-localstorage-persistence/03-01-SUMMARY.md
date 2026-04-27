@@ -125,6 +125,15 @@ None - no external service configuration required.
 - Phase 4 (Backend API Route Skeleton) can begin immediately
 - No blockers from this phase
 
+## Gap Closure (plan 03-02)
+
+CR-01 and CR-02 were resolved by plan 03-02 (2026-04-26):
+
+- **CR-01** — Replaced `JSON.parse(raw) as Wallet[]` with `Array.isArray` + per-field type guard. Non-array valid JSON now falls back silently to empty list instead of crashing `wallets.map`.
+- **CR-02** — Added `hasLoaded = useRef(false)` gating the sync effect. The sync effect now skips the first render pass, preventing write-on-mount race that overwrote valid localStorage data with `[]`.
+
+Human verify re-confirmed (2026-04-26): corrupted localStorage shows empty list with no JS error. Normal add/remove/reload flow unaffected.
+
 ---
 *Phase: 03-localstorage-persistence*
 *Completed: 2026-04-26*

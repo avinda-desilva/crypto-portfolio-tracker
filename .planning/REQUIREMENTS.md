@@ -11,9 +11,9 @@
 
 ### Frontend UI
 
-- [ ] **UI-01**: User can enter a wallet address with chain selection (ETH / BTC / SOL) and add it to the wallet list
-- [ ] **UI-02**: Wallet list displays each wallet with address, chain label, and balance placeholder
-- [ ] **UI-03**: User can remove a wallet from the list
+- [x] **UI-01**: User can enter a wallet address with chain selection (ETH / BTC / SOL) and add it to the wallet list
+- [x] **UI-02**: Wallet list displays each wallet with address, chain label, and balance placeholder
+- [x] **UI-03**: User can remove a wallet from the list
 
 ### Persistence
 

@@ -13,7 +13,7 @@ Ten sequential phases build a personal crypto portfolio tracker from shared Type
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Types** - Shared TypeScript interfaces for wallet, balance, and portfolio response
-- [ ] **Phase 2: Frontend UI (Wallet Input)** - Wallet input form with chain selector and display shell
+- [x] **Phase 2: Frontend UI (Wallet Input)** - Wallet input form with chain selector and display shell
 - [ ] **Phase 3: localStorage Persistence** - Wallet list persists and loads across page reloads
 - [ ] **Phase 4: Backend API Route (Skeleton)** - API route structure that accepts wallet params and returns shaped response
 - [ ] **Phase 5: Ethereum Balance Module** - Alchemy integration fetching live ETH balances
@@ -53,7 +53,7 @@ Plans:
 **Plans**: 2 plans
 Plans:
 - [x] 02-01-PLAN.md — Bootstrap Next.js App Router (package.json, tsconfig.json, next.config.ts, npm install)
-- [ ] 02-02-PLAN.md — Create app/layout.tsx and app/page.tsx with full dark-mode wallet UI
+- [x] 02-02-PLAN.md — Create app/layout.tsx and app/page.tsx with full dark-mode wallet UI
 **UI hint**: yes
 
 ### Phase 3: localStorage Persistence
@@ -188,7 +188,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Types | 1/1 | Complete | 2026-04-26 |
-| 2. Frontend UI (Wallet Input) | 1/2 | In progress | - |
+| 2. Frontend UI (Wallet Input) | 2/2 | Complete | 2026-04-26 |
 | 3. localStorage Persistence | 0/? | Not started | - |
 | 4. Backend API Route (Skeleton) | 0/? | Not started | - |
 | 5. Ethereum Balance Module | 0/? | Not started | - |

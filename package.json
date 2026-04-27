@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/avinda-desilva/crypto-portfolio-tracker#readme",
   "dependencies": {
+    "alchemy-sdk": "^3.6.5",
     "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

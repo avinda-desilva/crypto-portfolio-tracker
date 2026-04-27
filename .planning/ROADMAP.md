@@ -91,7 +91,7 @@ Plans:
 **Plans**: 2 plans
 Plans:
 - [x] 05-01-PLAN.md — Install alchemy-sdk, create lib/ethereum.ts with TDD (4 unit tests)
-- [ ] 05-02-PLAN.md — Wire lib/ethereum.ts into app/api/portfolio/route.ts (async refactor + test update)
+- [x] 05-02-PLAN.md — Wire lib/ethereum.ts into app/api/portfolio/route.ts (async refactor + test update)
 
 ### Phase 6: Bitcoin Balance Module
 **Goal**: `lib/bitcoin.ts` fetches a real BTC balance for any valid address via blockchain.info
@@ -198,7 +198,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 2. Frontend UI (Wallet Input) | 2/2 | Complete | 2026-04-26 |
 | 3. localStorage Persistence | 1/1 | Complete | 2026-04-26 |
 | 4. Backend API Route (Skeleton) | 1/1 | Complete | 2026-04-26 |
-| 5. Ethereum Balance Module | 1/2 | In progress | - |
+| 5. Ethereum Balance Module | 2/2 | Complete | 2026-04-27 |
 | 6. Bitcoin Balance Module | 0/? | Not started | - |
 | 7. Solana Balance Module | 0/? | Not started | - |
 | 8. Aggregator Logic | 0/? | Not started | - |

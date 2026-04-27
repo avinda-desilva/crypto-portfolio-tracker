@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-04-26)
 ## Current Position
 
 Phase: 5 of 14 (Ethereum Balance Module)
-Plan: 1 of 2 in current phase — Plan 01 complete, Plan 02 ready to execute
-Status: Phase 5 in progress — plan 05-01 complete (lib/ethereum.ts + tests)
-Last activity: 2026-04-27 — 05-01 complete: lib/ethereum.ts Alchemy module implemented and tested (4 tests passing)
+Plan: 2 of 2 in current phase — Phase 5 complete
+Status: Phase 5 complete — ETH-01 end-to-end (lib/ethereum.ts + route wiring + tests)
+Last activity: 2026-04-27 — 05-02 complete: portfolio route wired to real getEthereumBalance via Promise.all
 
-Progress: [█████░░░░░] 38%
+Progress: [█████░░░░░] 40%
 
 ## Performance Metrics
 
@@ -30,7 +30,7 @@ Progress: [█████░░░░░] 38%
 | 01-types | 1 | 2 min | 2 min |
 | 03-localstorage-persistence | 1 | 5 min | 5 min |
 | 04-backend-api-route | 1 | 12 min | 12 min |
-| 05-ethereum-balance-module | 1 | 2 min | 2 min |
+| 05-ethereum-balance-module | 2 | 5 min | 2.5 min |
 
 **Recent Trend:**
 - Last 5 plans: 01-01 (2 min), 05-01 (2 min)
@@ -52,6 +52,7 @@ Recent decisions affecting current work:
 - 03-01: localStorage key is literal string "wallets"; load effect uses [] dependency (mount-only); absent key triggers early return; JSON.parse wrapped in try/catch with silent fallback; save effect uses [wallets] dependency; no loading state variable
 - 04-01: Import path is ../../../types/wallet (3 levels up, not 2 as in plan spec); VALID_CHAINS as const for runtime chain validation; Jest testPathIgnorePatterns excludes tsc-only test file; tsconfig types includes jest and node for tsc --noEmit to pass on test files
 - 05-01: Alchemy SDK singleton created at module level (not inside function); getEthereumBalance returns 0 on any error (never throws); ALCHEMY_API_KEY from process.env exclusively; jest.mock at module level with __mockGetBalance export pattern; Jest 30 uses --testPathPatterns (plural)
+- 05-02: Promise.all with inline switch replaces getMockBalance in route.ts; jest.mock("../../lib/ethereum") at module level isolates route tests from Alchemy; mock returns 1.23 so existing Test 1 assertions unchanged; ETH-01 complete end-to-end
 
 ### Pending Todos
 
@@ -70,5 +71,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-04-27
-Stopped at: Phase 5 Plan 01 complete — lib/ethereum.ts with getEthereumBalance implemented (4 tests passing); ready for Phase 5 Plan 02 (route wiring)
-Resume file: None — 05-02-PLAN.md ready to execute
+Stopped at: Phase 5 Plan 02 complete — route.ts wired to getEthereumBalance via Promise.all; all 12 tests pass; Phase 5 fully complete
+Resume file: None — ready for Phase 6 (Bitcoin Module)

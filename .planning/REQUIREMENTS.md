@@ -22,7 +22,7 @@
 
 ### Backend API
 
-- [ ] **API-01**: `GET /api/portfolio` accepts wallet addresses+chains as query params and returns aggregated balance data
+- [x] **API-01**: `GET /api/portfolio` accepts wallet addresses+chains as query params and returns aggregated balance data
 - [ ] **API-02**: API returns per-wallet errors without failing the entire request (partial success)
 
 ### Chain Modules
@@ -104,7 +104,7 @@
 | UI-03 | Phase 2 | Pending |
 | STOR-01 | Phase 3 | Pending |
 | STOR-02 | Phase 3 | Pending |
-| API-01 | Phase 4 | Pending |
+| API-01 | Phase 4 | Complete |
 | API-02 | Phase 4 | Pending |
 | ETH-01 | Phase 5 | Pending |
 | BTC-01 | Phase 6 | Pending |

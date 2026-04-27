@@ -15,7 +15,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [x] **Phase 1: Types** - Shared TypeScript interfaces for wallet, balance, and portfolio response
 - [x] **Phase 2: Frontend UI (Wallet Input)** - Wallet input form with chain selector and display shell
 - [x] **Phase 3: localStorage Persistence** - Wallet list persists and loads across page reloads
-- [ ] **Phase 4: Backend API Route (Skeleton)** - API route structure that accepts wallet params and returns shaped response
+- [x] **Phase 4: Backend API Route (Skeleton)** - API route structure that accepts wallet params and returns shaped response
 - [ ] **Phase 5: Ethereum Balance Module** - Alchemy integration fetching live ETH balances
 - [ ] **Phase 6: Bitcoin Balance Module** - blockchain.info integration fetching live BTC balances
 - [ ] **Phase 7: Solana Balance Module** - Helius RPC integration fetching live SOL balances
@@ -78,7 +78,7 @@ Plans:
   3. The route file is structured with clear placeholders for chain module calls (ready for Phase 5-7 integration)
 **Plans**: 1 plan
 Plans:
-- [ ] 04-01-PLAN.md — Create app/api/portfolio/route.ts with POST handler, validation, and mock response
+- [x] 04-01-PLAN.md — Create app/api/portfolio/route.ts with POST handler, validation, and mock response
 
 ### Phase 5: Ethereum Balance Module
 **Goal**: `lib/ethereum.ts` fetches a real ETH balance for any valid address via Alchemy
@@ -194,7 +194,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 1. Types | 1/1 | Complete | 2026-04-26 |
 | 2. Frontend UI (Wallet Input) | 2/2 | Complete | 2026-04-26 |
 | 3. localStorage Persistence | 1/1 | Complete | 2026-04-26 |
-| 4. Backend API Route (Skeleton) | 0/1 | Not started | - |
+| 4. Backend API Route (Skeleton) | 1/1 | Complete | 2026-04-26 |
 | 5. Ethereum Balance Module | 0/? | Not started | - |
 | 6. Bitcoin Balance Module | 0/? | Not started | - |
 | 7. Solana Balance Module | 0/? | Not started | - |

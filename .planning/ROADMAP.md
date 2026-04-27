@@ -76,7 +76,9 @@ Plans:
   1. `GET /api/portfolio?wallets=...` responds with HTTP 200 and a JSON body matching `PortfolioResponse`
   2. A malformed or missing wallet entry returns a per-entry error object without failing the whole response
   3. The route file is structured with clear placeholders for chain module calls (ready for Phase 5-7 integration)
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 04-01-PLAN.md — Create app/api/portfolio/route.ts with POST handler, validation, and mock response
 
 ### Phase 5: Ethereum Balance Module
 **Goal**: `lib/ethereum.ts` fetches a real ETH balance for any valid address via Alchemy
@@ -192,7 +194,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | 1. Types | 1/1 | Complete | 2026-04-26 |
 | 2. Frontend UI (Wallet Input) | 2/2 | Complete | 2026-04-26 |
 | 3. localStorage Persistence | 1/1 | Complete | 2026-04-26 |
-| 4. Backend API Route (Skeleton) | 0/? | Not started | - |
+| 4. Backend API Route (Skeleton) | 0/1 | Not started | - |
 | 5. Ethereum Balance Module | 0/? | Not started | - |
 | 6. Bitcoin Balance Module | 0/? | Not started | - |
 | 7. Solana Balance Module | 0/? | Not started | - |

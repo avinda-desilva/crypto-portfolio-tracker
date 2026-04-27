@@ -69,12 +69,12 @@ Plans:
 - [x] 03-01-PLAN.md — Add useEffect hooks to app/page.tsx for localStorage load and save
 
 ### Phase 4: Backend API Route (Skeleton)
-**Goal**: `/api/portfolio` exists, accepts wallet query params, and returns a correctly shaped (stubbed) response
+**Goal**: `POST /api/portfolio` exists, accepts `{ wallets: Wallet[] }` as a JSON body, and returns a correctly shaped (stubbed) response
 **Depends on**: Phase 1
-**Requirements**: API-01, API-02
+**Requirements**: API-01
 **Success Criteria** (what must be TRUE):
-  1. `GET /api/portfolio?wallets=...` responds with HTTP 200 and a JSON body matching `PortfolioResponse`
-  2. A malformed or missing wallet entry returns a per-entry error object without failing the whole response
+  1. `POST /api/portfolio` with body `{ wallets: Wallet[] }` responds with HTTP 200 and `{ results: PortfolioResult[] }` with a fixed mock balance of 1.23 per wallet
+  2. A malformed body (invalid JSON, missing/non-array wallets, empty address, invalid chain) returns HTTP 400 with `{ error: string }`
   3. The route file is structured with clear placeholders for chain module calls (ready for Phase 5-7 integration)
 **Plans**: 1 plan
 Plans:
@@ -113,7 +113,7 @@ Plans:
 ### Phase 8: Aggregator Logic
 **Goal**: The API route combines all three chain modules, fetches USD prices from CoinGecko, and caches results to avoid hammering external APIs
 **Depends on**: Phase 5, Phase 6, Phase 7
-**Requirements**: AGG-01, AGG-02, AGG-03
+**Requirements**: AGG-01, AGG-02, AGG-03, API-02
 **Success Criteria** (what must be TRUE):
   1. A single `GET /api/portfolio` call with mixed ETH/BTC/SOL wallets returns balances for all chains in one response
   2. Each balance entry includes both native amount and USD equivalent sourced from CoinGecko

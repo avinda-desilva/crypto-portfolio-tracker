@@ -32,7 +32,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "jest": "^30.3.0",
-    "ts-jest": "^29.4.9",
+    "ts-jest": "^30.0.0",
     "typescript": "^6.0.3"
   }
 }

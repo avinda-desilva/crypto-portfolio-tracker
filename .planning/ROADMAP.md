@@ -64,7 +64,9 @@ Plans:
   1. Wallets added in one session are present after a hard page reload
   2. Wallets removed before reload are absent after reload
   3. On initial render the wallet list is populated from localStorage before any user interaction
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 03-01-PLAN.md — Add useEffect hooks to app/page.tsx for localStorage load and save
 
 ### Phase 4: Backend API Route (Skeleton)
 **Goal**: `/api/portfolio` exists, accepts wallet query params, and returns a correctly shaped (stubbed) response
@@ -189,7 +191,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 |-------|----------------|--------|-----------|
 | 1. Types | 1/1 | Complete | 2026-04-26 |
 | 2. Frontend UI (Wallet Input) | 2/2 | Complete | 2026-04-26 |
-| 3. localStorage Persistence | 0/? | Not started | - |
+| 3. localStorage Persistence | 0/1 | Not started | - |
 | 4. Backend API Route (Skeleton) | 0/? | Not started | - |
 | 5. Ethereum Balance Module | 0/? | Not started | - |
 | 6. Bitcoin Balance Module | 0/? | Not started | - |

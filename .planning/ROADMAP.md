@@ -50,7 +50,10 @@ Plans:
   2. Wallet list displays each entry with its address and chain label
   3. User can remove any wallet from the list via a delete control
   4. Balance column renders a visible placeholder (e.g., "—") before any API data loads
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 02-01-PLAN.md — Bootstrap Next.js App Router (package.json, tsconfig.json, next.config.ts, npm install)
+- [ ] 02-02-PLAN.md — Create app/layout.tsx and app/page.tsx with full dark-mode wallet UI
 **UI hint**: yes
 
 ### Phase 3: localStorage Persistence
@@ -185,7 +188,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 →
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Types | 1/1 | Complete | 2026-04-26 |
-| 2. Frontend UI (Wallet Input) | 0/? | Not started | - |
+| 2. Frontend UI (Wallet Input) | 0/2 | Not started | - |
 | 3. localStorage Persistence | 0/? | Not started | - |
 | 4. Backend API Route (Skeleton) | 0/? | Not started | - |
 | 5. Ethereum Balance Module | 0/? | Not started | - |
